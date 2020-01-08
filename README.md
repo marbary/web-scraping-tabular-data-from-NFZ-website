@@ -1,3 +1,3 @@
 # web-scraping-tabular-data-from-NFZ-website
-This is a function used for scraping health products cost data from multiple locations within NFZ-s webservice for convenience health market analysis - using R language.
-Collected data can be next used to create sql-based database and data vizualization through RShiny web applications.
+product_data() is a function for scraping health-products-cost-data from multiple locations within Polish NFZ-s Contract Information Register (https://www.nfz.gov.pl/o-nfz/informator-o-zawartych-umowach/) for convenient health market analysis. The function agruments are: "year", "OW", "prod_name" which stand for: "year", "Provincial Branches of the National Health Fund's code" and "name of contracted product" respectively. The functions return a csv file with comprehensive dataset dor further analysis.
+
