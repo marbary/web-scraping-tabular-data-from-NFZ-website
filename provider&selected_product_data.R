@@ -17,7 +17,7 @@ provider_product_data <- function(year, OW, prod_name) {
                               html_nodes(".hidden-sm+ td a") %>%
                               html_attr("href"), sep = "")
   
-  #zebranie info o uslugodawcy (id, nazwa, miasto) i OW, ktore potem dolacze do tabeli z info o uslugach
+  #provider's info gathering (id, name, city and voivodeship name), which next going to be added to the main table
   service_providers <- formatted_base_url %>% read_html() %>% html_node("table") %>% html_table()
   service_providers <- service_providers[2:4]
   
@@ -26,7 +26,7 @@ provider_product_data <- function(year, OW, prod_name) {
   for (i in hrefs_for2layers) {href <- read_html(i) %>% html_nodes("td a") %>% html_attr("href")
   hrefs_for3layers <- append(hrefs_for3layers, paste(prefix, href, sep = ""))}
   
-  #SCRAPING
+  #product data gathering
   all_data_for_product <- data.frame()
   count <- 0
   for (i in hrefs_for3layers) {single_table <- read_html(i) %>% html_node("table") %>% html_table(header = TRUE)
@@ -57,6 +57,6 @@ provider_product_data <- function(year, OW, prod_name) {
   kod_produktu <- append(kod_produktu, row[1])}
   all_data_for_product[,5] <- kod_produktu
   
-  # saving and nameing data
+  # saving and nameing data file
   csv_file_name <- sprintf("%s_OW%s_%s", year, OW, prod_name)
   write.csv(all_data_for_product, csv_file_name, row.names = FALSE)}
