@@ -1,4 +1,4 @@
-OW_provider_product_data <- function(year, OW, prod_name) {
+product_dataset <- function(year, OW, prod_name) {
   
   #required_packages
   required_pkgs <- c("stringr", "rvest", "magrittr", "dplyr")
