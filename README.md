@@ -9,3 +9,5 @@ If you want to find relevant data for a wider scope of time (years), make a func
 > for (year in years) {provider_product_data(year, "01", "tlenoterapia+domowa")} 
 
 You can also mapp this function in different ways depending on what dataset you need to get.
+
+After gaining the data, in order to analyze them, change columns types to appropriate ones. See a script "column_type_convertion.R" wiwhich cover an instruction on how to cleanse and convert type of data imported directly from web service or from .csv file.
